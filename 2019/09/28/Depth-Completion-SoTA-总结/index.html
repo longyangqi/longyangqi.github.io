@@ -55,15 +55,19 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="Depth Completion SoTA 主流方法总结 分两路计算置信度（对sparse_d进行优化、滤波，主要考虑到sparse_d中存在的噪声等不准确性）:  DeepLidar（CVPR 19） Noisy &amp;amp; Uncertainty （MVA 19）   利用Surface Normal:  作为中间结果：  DeepLidar (CVPR 19) From Single RGB">
+<meta name="keywords" content="Depth Completion， Research">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Depth Completion SoTA 总结">
+<meta property="og:url" content="http://yoursite.com/2019/09/28/Depth-Completion-SoTA-总结/index.html">
 <meta property="og:site_name" content="Yangqi Long">
+<meta property="og:description" content="Depth Completion SoTA 主流方法总结 分两路计算置信度（对sparse_d进行优化、滤波，主要考虑到sparse_d中存在的噪声等不准确性）:  DeepLidar（CVPR 19） Noisy &amp;amp; Uncertainty （MVA 19）   利用Surface Normal:  作为中间结果：  DeepLidar (CVPR 19) From Single RGB">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T03:17:05.611Z">
+<meta property="og:updated_time" content="2019-09-28T14:15:29.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-  <link rel="canonical" href="http://yoursite.com/tags/">
+<meta name="twitter:title" content="Depth Completion SoTA 总结">
+<meta name="twitter:description" content="Depth Completion SoTA 主流方法总结 分两路计算置信度（对sparse_d进行优化、滤波，主要考虑到sparse_d中存在的噪声等不准确性）:  DeepLidar（CVPR 19） Noisy &amp;amp; Uncertainty （MVA 19）   利用Surface Normal:  作为中间结果：  DeepLidar (CVPR 19) From Single RGB">
+  <link rel="canonical" href="http://yoursite.com/2019/09/28/Depth-Completion-SoTA-总结/">
 
 
 <script id="page-configurations">
@@ -71,13 +75,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
-    isPage: true,
+    isPost: true,
+    isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>tags | Yangqi Long</title>
+  <title>Depth Completion SoTA 总结 | Yangqi Long</title>
   
 
 
@@ -191,24 +195,6 @@
 
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 </nav>
 </div>
     </header>
@@ -227,49 +213,143 @@
             
 
   <div id="posts" class="posts-expand">
-    
-    
-    
-    <div class="post-block page">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">tags
-
-</h1>
-
-<div class="post-meta">
+      <article itemscope itemtype="http://schema.org/Article">
   
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/Depth-Completion-SoTA-总结/">
 
-</div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="longyangqi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
 
-</header>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangqi Long">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Depth Completion SoTA 总结
 
-      
-      
-      
-      <div class="post-body">
-        
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 2 个标签
-            </div>
-            <div class="tag-cloud-tags">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
               
-                <a href="/tags/Depth-Completion，-Research/" style="font-size: 12px; color: #ccc">Depth Completion， Research</a> <a href="/tags/book-note/" style="font-size: 12px; color: #ccc">book note</a>
+                
+              
+
+              <time title="创建时间：2019-09-28 21:36:10 / 修改时间：22:15:29" itemprop="dateCreated datePublished" datetime="2019-09-28T21:36:10+08:00">2019-09-28</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Depth-Completion-SoTA-主流方法总结"><a href="#Depth-Completion-SoTA-主流方法总结" class="headerlink" title="Depth Completion SoTA 主流方法总结"></a>Depth Completion SoTA 主流方法总结</h1><ol>
+<li><p>分两路计算置信度（对<code>sparse_d</code>进行优化、滤波，主要考虑到<code>sparse_d</code>中存在的噪声等不准确性）:</p>
+<ul>
+<li>DeepLidar（CVPR 19）</li>
+<li>Noisy &amp; Uncertainty （MVA 19）</li>
+</ul>
+</li>
+<li><p>利用<code>Surface Normal</code>:</p>
+<ul>
+<li>作为中间结果： <ul>
+<li>DeepLidar (CVPR 19)</li>
+<li>From Single RGB (CVPR 19)</li>
+</ul>
+</li>
+<li>做约束：<ul>
+<li>PwP (ICCV 19)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>3D clound-point (点云这方面目前主要的工作还是在 <code>object detection/segmentation</code> ):</p>
+<ul>
+<li>特征融合： Joint 2D-3D (ICCV 19)</li>
+</ul>
+</li>
+<li><p>从<code>RGB</code>中学习<code>guided</code>（该部分主要是显式地学习<code>guided</code>，其实第一部分也算隐式地学习）：</p>
+<ul>
+<li><p>Affinity 调优： CSPN (ECCV 18)</p>
+</li>
+<li><p>学习网络权重： Guided Conv (TIP 19)</p>
+<p>其实上面两个方法也是相通地，只是第二种方法将<code>guided-conv-layer</code>多次用在网络特征提取中，作用在特征上；而<code>CSPN</code>是放在最后作为一个调优地过程，作用在深度图上</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="To-Be-Done"><a href="#To-Be-Done" class="headerlink" title="To Be Done"></a>To Be Done</h2><ul>
+<li><input disabled type="checkbox"> 分别精读整理每篇论文</li>
+<li><input disabled type="checkbox"> 持续更新<code>SOTA</code></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Depth-Completion，-Research/" rel="tag"># Depth Completion， Research</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/12/Fluent-python-Chapter2/" rel="next" title="Fluent python Chapter2">
+                  <i class="fa fa-chevron-left"></i> Fluent python Chapter2
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
               
             </div>
           </div>
         
-      </div>
-      
-      
-      
-    </div>
+      </footer>
     
+  </div>
+  
+  
+  
+  </article>
 
-    
-    
-    
   </div>
 
 
@@ -306,6 +386,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Depth-Completion-SoTA-主流方法总结"><span class="nav-number">1.</span> <span class="nav-text">Depth Completion SoTA 主流方法总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#To-Be-Done"><span class="nav-number">1.1.</span> <span class="nav-text">To Be Done</span></a></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
