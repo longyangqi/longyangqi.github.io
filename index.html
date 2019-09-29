@@ -252,7 +252,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-29 11:34:06" itemprop="dateModified" datetime="2019-09-29T11:34:06+08:00">2019-09-29</time>
+                <time title="修改时间：2019-09-29 11:39:04" itemprop="dateModified" datetime="2019-09-29T11:39:04+08:00">2019-09-29</time>
               </span>
             
           
@@ -281,41 +281,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Depth-Completion-SoTA-主流方法总结"><a href="#Depth-Completion-SoTA-主流方法总结" class="headerlink" title="Depth Completion SoTA 主流方法总结"></a>Depth Completion SoTA 主流方法总结</h1><ol>
-<li><p>分两路计算置信度（对<code>sparse_d</code>进行优化、滤波，主要考虑到<code>sparse_d</code>中存在的噪声等不准确性）:</p>
-<ul>
-<li>DeepLidar（CVPR 19）</li>
-<li>Noisy &amp; Uncertainty （MVA 19）</li>
-</ul>
-</li>
-<li><p>利用<code>Surface Normal</code>:</p>
-<ul>
-<li>作为中间结果： <ul>
-<li>DeepLidar (CVPR 19)</li>
-<li>From Single RGB (CVPR 19)</li>
-</ul>
-</li>
-<li>做约束：<ul>
-<li>PwP (ICCV 19)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>3D clound-point (点云这方面目前主要的工作还是在 <code>object detection/segmentation</code> ):</p>
-<ul>
-<li>特征融合： Joint 2D-3D (ICCV 19)</li>
-</ul>
-</li>
-<li><p>从<code>RGB</code>中学习<code>guided</code>（该部分主要是显式地学习<code>guided</code>，其实第一部分也算隐式地学习）：</p>
-<ul>
-<li><p>Affinity 调优： CSPN (ECCV 18)</p>
-</li>
-<li><p>学习网络权重： Guided Conv (TIP 19)</p>
-<p>其实上面两个方法也是相通地，只是第二种方法将<code>guided-conv-layer</code>多次用在网络特征提取中，作用在特征上；而<code>CSPN</code>是放在最后作为一个调优地过程，作用在深度图上</p>
-</li>
-</ul>
-</li>
-</ol>
+          <h1 id="Depth-Completion-SoTA-主流方法总结"><a href="#Depth-Completion-SoTA-主流方法总结" class="headerlink" title="Depth Completion SoTA 主流方法总结"></a>Depth Completion SoTA 主流方法总结</h1>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -472,6 +438,18 @@
 
               <time title="创建时间：2019-09-08 10:39:49" itemprop="dateCreated datePublished" datetime="2019-09-08T10:39:49+08:00">2019-09-08</time>
             </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-29 11:37:00" itemprop="dateModified" datetime="2019-09-29T11:37:00+08:00">2019-09-29</time>
+              </span>
+            
           
 
           
