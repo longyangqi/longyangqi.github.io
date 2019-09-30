@@ -64,7 +64,7 @@
 <meta property="og:description" content="基于github+hexo博客搭建">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/09/30/hexo-next博客搭建/12686502-c1987cc57804491e.webp">
-<meta property="og:updated_time" content="2019-09-30T09:40:17.213Z">
+<meta property="og:updated_time" content="2019-09-30T13:00:17.799Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github+hexo+next博客搭建">
 <meta name="twitter:description" content="基于github+hexo博客搭建">
@@ -248,7 +248,7 @@
                 
               
 
-              <time title="创建时间：2019-09-30 11:38:16 / 修改时间：17:40:17" itemprop="dateCreated datePublished" datetime="2019-09-30T11:38:16+08:00">2019-09-30</time>
+              <time title="创建时间：2019-09-30 11:38:16 / 修改时间：21:00:17" itemprop="dateCreated datePublished" datetime="2019-09-30T11:38:16+08:00">2019-09-30</time>
             </span>
           
             
@@ -354,21 +354,33 @@
 <h1 id="选用next主题"><a href="#选用next主题" class="headerlink" title="选用next主题"></a>选用next主题</h1><p>目前使用next主题，在hexo官网<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a>有很多主题可供选择，将主题代码下载下来放在博客网站文件夹下<code>themes</code>文件夹里即可</p>
 <p>网站地基本设置在<code>_config.yml</code>里面，指定theme为next；主题的基本设置在<code>themes/next/_config.yml</code>里面</p>
 <p>后面是记录一些功能，以及目前的实现方法</p>
-<h3 id="md编辑器"><a href="#md编辑器" class="headerlink" title="md编辑器"></a>md编辑器</h3><p>目前使用typora，比较顺手，没有云端备份，主题目前新宠 Monospace Dark 感觉不错</p>
-<h3 id="文章-页面模板设置"><a href="#文章-页面模板设置" class="headerlink" title="文章/页面模板设置"></a>文章/页面模板设置</h3><p>新建文章/页面会根据模板初始化，在<code>scaffolds</code>文件夹下，手动修改即可</p>
-<h3 id="显示摘要和阅读原文设置"><a href="#显示摘要和阅读原文设置" class="headerlink" title="显示摘要和阅读原文设置"></a>显示摘要和阅读原文设置</h3><ol>
+<h2 id="md编辑器"><a href="#md编辑器" class="headerlink" title="md编辑器"></a>md编辑器</h2><p>目前使用typora，比较顺手，没有云端备份，主题目前新宠 Monospace Dark 感觉不错</p>
+<h2 id="文章-页面模板设置"><a href="#文章-页面模板设置" class="headerlink" title="文章/页面模板设置"></a>文章/页面模板设置</h2><p>新建文章/页面会根据模板初始化，在<code>scaffolds</code>文件夹下，手动修改即可</p>
+<h2 id="显示摘要和阅读原文设置"><a href="#显示摘要和阅读原文设置" class="headerlink" title="显示摘要和阅读原文设置"></a>显示摘要和阅读原文设置</h2><ol>
 <li>自动摘要：主题配置文件<code>themes/next/_config.yml</code>搜索<code>auto_excerpt</code> ，默认150字</li>
 <li>推荐在文章中手动设置，需要隐藏的部分用 <code>&lt;!--more--&gt;</code>隔开即可（直接写进文章模板设置防止忘记）</li>
 </ol>
-<h3 id="统计文章访问人次数"><a href="#统计文章访问人次数" class="headerlink" title="统计文章访问人次数"></a>统计文章访问人次数</h3><p>修改文件<code>theme/next/layout/_partials/footer.swig</code></p>
+<h2 id="统计文章访问人次数"><a href="#统计文章访问人次数" class="headerlink" title="统计文章访问人次数"></a>统计文章访问人次数</h2><p>修改文件<code>theme/next/layout/_partials/footer.swig</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 新增访客统计代码 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;busuanzi-count&quot;&gt;</span><br><span class="line">    &lt;script async=&quot;&quot; src=&quot;https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;span class=&quot;site-uv&quot;&gt;</span><br><span class="line">      &lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;</span><br><span class="line">      访问用户： &lt;span class=&quot;busuanzi-value&quot; id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt; 人</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">    &lt;div class=&quot;powered-by&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;span class=&quot;site-uv&quot;&gt;</span><br><span class="line">      &lt;i class=&quot;fa fa-eye&quot;&gt;&lt;/i&gt;</span><br><span class="line">      访问次数： &lt;span class=&quot;busuanzi-value&quot; id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt; 次</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">    &lt;!-- 博客字数统计 --&gt;</span><br><span class="line">    &lt;span class=&quot;site-pv&quot;&gt;</span><br><span class="line">      &lt;i class=&quot;fa fa-pencil&quot;&gt;&lt;/i&gt;</span><br><span class="line">      博客全站共： &lt;span class=&quot;post-count&quot;&gt;&#123;&#123; totalcount(site) &#125;&#125;&lt;/span&gt; 字</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- 新增访客统计代码 END--&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="文章评论功能"><a href="#文章评论功能" class="headerlink" title="文章评论功能"></a>文章评论功能</h3><p>评论功能有好几种方式，<a href="https://www.zhihu.com/question/267598518?sort=created" target="_blank" rel="noopener">知乎讨论</a>,说的比较多的 <a href="https://livere.com/" target="_blank" rel="noopener">来必力</a>、<a href="https://valine.js.org" target="_blank" rel="noopener">Valine</a>、github套装 gittalk/gitment、畅言、hypercomments</p>
+<h2 id="文章评论功能"><a href="#文章评论功能" class="headerlink" title="文章评论功能"></a>文章评论功能</h2><p>评论功能有好几种方式，<a href="https://www.zhihu.com/question/267598518?sort=created" target="_blank" rel="noopener">知乎讨论</a>,说的比较多的 <a href="https://livere.com/" target="_blank" rel="noopener">来必力</a>、<a href="https://valine.js.org" target="_blank" rel="noopener">Valine</a>、github套装 gittalk/gitment、畅言、hypercomments</p>
 <p>next主题天然支持 <code>changyan | disqus | disqusjs | facebook_comments_plugin | gitalk | livere | valine | vkontakte</code></p>
 <p>目前用的是Valine，基于LeanCloud，但是由于LeanCloud国内版现在需要绑定域名，因此目前使用了国际版，可能后面还要换……</p>
 <p>只需要注册一个LeanCloud账号，开一个服务，创建一个class</p>
 <p>在主题设置中搜索<code>valine</code>，对应设置好<code>appid &amp; appkey</code>，设置CDN，<a href="https://www.jsdelivr.com/package/npm/valine" target="_blank" rel="noopener">https://www.jsdelivr.com/package/npm/valine</a>找最新版本，似乎是会快？不太懂……</p>
 <p>具体参见<a href="https://www.jianshu.com/p/728a9594bb6c" target="_blank" rel="noopener">https://www.jianshu.com/p/728a9594bb6c</a></p>
+<h2 id="md插入图片"><a href="#md插入图片" class="headerlink" title="md插入图片"></a>md插入图片</h2><p>这里踩了个坑，记录一下</p>
+<p>其实比较简单，利用<a href="https://github.com/xcodebuild/hexo-asset-image" target="_blank" rel="noopener">github上插件</a>在<code>source/posts</code>里面创建和文章同名文件夹，再在文章中相对路径引用即可。这里用tpyora就很方便，只需要设置图片插入复制到指定路径<code>./${filename}</code>，图片就会自动存在同名文件夹下。</p>
+<ol>
+<li><p>在<code>_config.yml</code>中找到<code>post_asset_folder</code>，设置为<code>ture</code></p>
+</li>
+<li><p>下载<code>hexo-asset-image</code>插件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/xcodebuild/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p>在<code>node_modules</code>下新增<code>hexo-asset-image</code>模块</p>
+<p>==注意 网上很多教程这里使用<code>npm install hexo-asset-image --save</code>命令，会出现生成的路径多出<code>/.com/</code>的问题，大概是由于版本问题，使用上述命令安装0.0.5版本没有出现问题， 参见<a href="https://segmentfault.com/q/1010000020310187" target="_blank" rel="noopener">博客</a>，后面第三点没有使用==</p>
+</li>
+</ol>
 <h1 id="To-be-done"><a href="#To-be-done" class="headerlink" title="To be done"></a>To be done</h1><ul>
 <li><input disabled type="checkbox"> 随着功能持续更新</li>
 </ul>
@@ -463,7 +475,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于github-hexo博客搭建"><span class="nav-number">1.</span> <span class="nav-text">基于github+hexo博客搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境配置"><span class="nav-number">1.1.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装hexo"><span class="nav-number">1.2.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github"><span class="nav-number">1.3.</span> <span class="nav-text">部署到github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo基本操作"><span class="nav-number">1.4.</span> <span class="nav-text">hexo基本操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选用next主题"><span class="nav-number">2.</span> <span class="nav-text">选用next主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#md编辑器"><span class="nav-number">2.0.1.</span> <span class="nav-text">md编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章-页面模板设置"><span class="nav-number">2.0.2.</span> <span class="nav-text">文章/页面模板设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示摘要和阅读原文设置"><span class="nav-number">2.0.3.</span> <span class="nav-text">显示摘要和阅读原文设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#统计文章访问人次数"><span class="nav-number">2.0.4.</span> <span class="nav-text">统计文章访问人次数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章评论功能"><span class="nav-number">2.0.5.</span> <span class="nav-text">文章评论功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#To-be-done"><span class="nav-number">3.</span> <span class="nav-text">To be done</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于github-hexo博客搭建"><span class="nav-number">1.</span> <span class="nav-text">基于github+hexo博客搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境配置"><span class="nav-number">1.1.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装hexo"><span class="nav-number">1.2.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github"><span class="nav-number">1.3.</span> <span class="nav-text">部署到github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo基本操作"><span class="nav-number">1.4.</span> <span class="nav-text">hexo基本操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选用next主题"><span class="nav-number">2.</span> <span class="nav-text">选用next主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#md编辑器"><span class="nav-number">2.1.</span> <span class="nav-text">md编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章-页面模板设置"><span class="nav-number">2.2.</span> <span class="nav-text">文章/页面模板设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示摘要和阅读原文设置"><span class="nav-number">2.3.</span> <span class="nav-text">显示摘要和阅读原文设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计文章访问人次数"><span class="nav-number">2.4.</span> <span class="nav-text">统计文章访问人次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章评论功能"><span class="nav-number">2.5.</span> <span class="nav-text">文章评论功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#md插入图片"><span class="nav-number">2.6.</span> <span class="nav-text">md插入图片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#To-be-done"><span class="nav-number">3.</span> <span class="nav-text">To be done</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
