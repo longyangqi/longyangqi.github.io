@@ -6,7 +6,7 @@ subtitle: <a href='#'>Affiliations</a>. Alibaba Group, Zhejiang University
 
 profile:
   align: left
-  image: pic_touxiang.jpg
+  image: pic_touxiang_crop.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
 
