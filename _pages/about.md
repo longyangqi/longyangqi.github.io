@@ -27,4 +27,4 @@ latest_posts:
 
 I am currently a senior researcher at Alibaba Group.
 
-I obtained my PhD at Zhejiang University, where I was advised by Prof. Huimin Yu. During my PhD. Earlier, I obtained my bachelor’s degree from Zhejiang University.
+I obtained my PhD at Zhejiang University, where I was advised by Prof. Huimin Yu. Earlier, I obtained my bachelor’s degree from Zhejiang University.
