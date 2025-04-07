@@ -628,7 +628,7 @@ jsonresume:
   - work
   - education
   - publications
-  # - projects
+  - projects
   - volunteer
   - awards
   - certificates
@@ -636,3 +636,10 @@ jsonresume:
   - languages
   - interests
   - references
+
+exclude:
+  - _news/announcement_*.md
+  - _pages/blog.md
+  - _posts/
+  - _projects/?_project.md
+  - assets/jupyter/blog.ipynb
