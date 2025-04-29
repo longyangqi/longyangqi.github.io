@@ -7,7 +7,7 @@ Jekyll::Hooks.register :site, :after_init do |site|
   require 'uri'
 
   font_file_types = ['otf', 'ttf', 'woff', 'woff2']
-  image_file_types = ['.gif', '.jpg', '.jpeg', '.png', '.webp']
+  image_file_types = ['.gif', '.jpg', '.jpeg', '.png', '.webp', '.mp4']
 
   def download_and_change_rule_set_url(rule_set, rule, dest, dirname, config, file_types)
     # check if the rule has a url
