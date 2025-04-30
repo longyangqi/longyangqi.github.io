@@ -28,7 +28,7 @@ latest_posts:
 I am currently a Senior researcher at Alibaba, where my primary focus is on AIGC for 3D XR applications, including animatable 3D avatars and spatial video generation.
 
 Previously, I obtained my PhD and bachelor’s degree at Zhejiang University advised by Prof. Huimin Yu.
-debug v2
+debug v3
 
-<!-- test -->
+<!-- 11 -->
 
